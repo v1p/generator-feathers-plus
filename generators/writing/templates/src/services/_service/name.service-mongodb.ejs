@@ -11,8 +11,9 @@
 
 <%- tplModuleExports(null, 'function (app) {', 'function (app: App) {') %>
   let paginate = app.get('paginate')<%- sc %>
+  let multi = app.get('multi')<%- sc %>
   let mongoClient = app.get('mongoClient')<%- tplTsOnly([' as Promise<Db>']) -%><%- sc %>
-  let options = { paginate }<%- sc %>
+  let options = { paginate, multi }<%- sc %>
   <%- insertFragment('func_init') %>
 
   // Initialize our service with any options it requires
